@@ -41,27 +41,8 @@ public class GetXhtmlFile {
 		Map<Integer, String> url = new HashMap<Integer, String>();
 		
 
-		guidelineMap.put(901, "Antibiotic");
-		guidelineMap.put(966,"Diabetes");
-		guidelineMap.put(967,"Sexual and Reproductive Health");
-		guidelineMap.put(902,"Bone and Metabolism");
-		guidelineMap.put(969, "Ulcer and Wound Management");
-		guidelineMap.put(903, "Oral and Dental");
-		guidelineMap.put(981, "Other");
-		guidelineMap.put(982, "Fatigue");
-		guidelineMap.put(988, "Respiratory");
-		guidelineMap.put(991, "Analgesic");
-		guidelineMap.put(993, "Psychotropic");
-		guidelineMap.put(994, "Cardiovascular");
-		guidelineMap.put(995, "Neurology");
-		guidelineMap.put(996, "Rheumatology");
-		guidelineMap.put(997, "Palliative Care");
-		guidelineMap.put(998, "Gastrointestinal");
-		guidelineMap.put(999, "Dermatology");
-		guidelineMap.put(2000, "Quicklinks");
-		guidelineMap.put(904, "Toxicology and Toxinology");
-		guidelineMap.put(905, "Wilderness Medicine");
-
+		guidelineMap.put(9, "Ant");
+		
 		try {
 
 			File folder = new File("G:\\xhmlcontent\\");
@@ -71,7 +52,7 @@ public class GetXhtmlFile {
 			for (int j = 0; j < listOfFiles1.length; j++) {
 				String nee=listOfFiles1[j].getAbsolutePath();
 				String pathreplace=nee+"\\";
-			    pathreplace=nee.replace("xhmlcontent", "digi content");
+			    pathreplace=nee.replace("xhmlcontent", "FileNAme");
 			    pathreplace=pathreplace+"\\";
 				String nam = new File(nee).getName();
 
@@ -82,7 +63,7 @@ public class GetXhtmlFile {
 					String na = new File(neee).getName();
 					
 					File[] listOfFiles2 = listOfFiles[i].listFiles();
-							String ne=neee+ File.separator +"digieditcontent";
+							String ne=neee+ File.separator +"filename";
 							File directory=new File(ne);
 						    int fileCount=directory.list().length;
 						    
@@ -284,7 +265,7 @@ public class GetXhtmlFile {
  			Class.forName("com.mysql.jdbc.Driver");
  			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
  			Statement stmt = con.createStatement();
- 			ResultSet rs = stmt.executeQuery("SELECT url FROM `tbl_title_url` WHERE book_id="+nam+"  AND chapter_id="+na+" ");
+ 			ResultSet rs = stmt.executeQuery("SELECT url FROM `table NAme` WHERE book_id="+nam+"  AND chapter_id="+na+" ");
  		    
 			while (rs.next())
 				 firstNamew = rs.getString(1);
