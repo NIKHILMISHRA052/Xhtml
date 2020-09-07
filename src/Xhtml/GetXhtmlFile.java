@@ -35,13 +35,10 @@ public class GetXhtmlFile {
 	
 	public static void main(String[] args) throws Exception {
 		
-		Map<Integer, String> guidelineMap = new HashMap<Integer, String>();
+		
 		Map<String, Integer> data = new HashMap<String, Integer>();
 		
 		Map<Integer, String> url = new HashMap<Integer, String>();
-		
-
-		guidelineMap.put(9, "Ant");
 		
 		try {
 
@@ -53,6 +50,7 @@ public class GetXhtmlFile {
 				String nee=listOfFiles1[j].getAbsolutePath();
 				String pathreplace=nee+"\\";
 			    pathreplace=nee.replace("xhmlcontent", "FileNAme");
+			    pathreplace=replaceMap(pathreplace);
 			    pathreplace=pathreplace+"\\";
 				String nam = new File(nee).getName();
 
@@ -259,6 +257,24 @@ public class GetXhtmlFile {
 			}
 		    	
 		}
+	 
+	  public static String replaceMap(String pathreplace){
+		  
+			String nam = new File(pathreplace).getName();
+		   Map<Integer, String> guidelineMap = new HashMap<Integer, String>();
+		   guidelineMap.put(1, "Ant");
+		
+		   for (Map.Entry<Integer, String> set : guidelineMap.entrySet()) {
+			    String guidelineValue=set.getKey().toString();
+			         if(nam.equalsIgnoreCase(guidelineValue)){
+			        	 pathreplace=pathreplace.replace(nam, set.getValue());
+			         }
+			   
+			}
+		   
+		   return pathreplace;
+		   
+	   }
      public static void rename(String nam,String na,File filePathdirectory)throws IOException{
     	 String  firstNamew ="null";
  		try {
